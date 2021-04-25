@@ -1,0 +1,20 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: greeting-console
+spec:
+  nodeSelector: {}
+  strategy:
+    type: Docker
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/hafedhmhammdi/DO400-apps/tree/main/greeting-console'
+      ref: main
+  output:
+    to:
+      kind: DockerImage
+      name: quay.io/repository/mhammdimohammedhafedh/greeting-console
+    pushSecret:
+      name: quay-credentials
+
